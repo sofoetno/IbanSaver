@@ -9,14 +9,18 @@ import UIKit
 import SwiftUI
 
 protocol WithRootNavigationController {
+    // MARK: - Properties
     var rootNavigationController: UINavigationController? { get }
     
+    // MARK: - Methods
     func push(viewController: UIViewController, animated: Bool)
     func pop(animated: Bool)
 
 }
 
 extension WithRootNavigationController where Self:View {
+    
+    // MARK: - Properties
     var rootNavigationController: UINavigationController? {
         guard let scene = UIApplication.shared.connectedScenes.first,
               let sceneDelegate = scene as? UIWindowScene,
@@ -26,6 +30,7 @@ extension WithRootNavigationController where Self:View {
         return rootNavigationController
     }
     
+    // MARK: - Methods
     func push(viewController: UIViewController, animated: Bool) {
         rootNavigationController?.pushViewController(viewController, animated: animated)
     }
@@ -33,4 +38,5 @@ extension WithRootNavigationController where Self:View {
     func pop(animated: Bool) {
         rootNavigationController?.popViewController(animated: animated)
     }
+
 }

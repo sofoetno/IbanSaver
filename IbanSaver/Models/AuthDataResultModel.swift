@@ -8,6 +8,8 @@
 import Foundation
 
 struct AuthDataResultModel {
+    
+    // MARK: - Properties
     let uid: String
     let email: String?
 }

@@ -11,7 +11,6 @@
 		88C4EB142B4EBE690033A466 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB132B4EBE690033A466 /* SceneDelegate.swift */; };
 		88C4EB1B2B4EBE6B0033A466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C4EB1A2B4EBE6B0033A466 /* Assets.xcassets */; };
 		88C4EB1E2B4EBE6B0033A466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88C4EB1C2B4EBE6B0033A466 /* LaunchScreen.storyboard */; };
-		88C4EB262B4EBED10033A466 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB252B4EBED10033A466 /* HomeView.swift */; };
 		88C4EB282B4ED5A10033A466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C4EB272B4ED5A10033A466 /* GoogleService-Info.plist */; };
 		88C4EB2B2B4ED67D0033A466 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 88C4EB2A2B4ED67D0033A466 /* FirebaseAnalytics */; };
 		88C4EB2D2B4ED67D0033A466 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 88C4EB2C2B4ED67D0033A466 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -22,6 +21,9 @@
 		88C4EB432B4F2F480033A466 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB422B4F2F480033A466 /* RegisterViewModel.swift */; };
 		88C4EB452B4F33BA0033A466 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB442B4F33BA0033A466 /* AuthManager.swift */; };
 		88C4EB472B4F37390033A466 /* AuthDataResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB462B4F37390033A466 /* AuthDataResultModel.swift */; };
+		88C4EB4A2B4FFB2C0033A466 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB492B4FFB2C0033A466 /* Validator.swift */; };
+		88C4EB4E2B502D310033A466 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB4D2B502D310033A466 /* HomeView.swift */; };
+		88C4EB502B503C9D0033A466 /* PasswordValidationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB4F2B503C9D0033A466 /* PasswordValidationStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +33,15 @@
 		88C4EB1A2B4EBE6B0033A466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88C4EB1D2B4EBE6B0033A466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88C4EB1F2B4EBE6B0033A466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88C4EB252B4EBED10033A466 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		88C4EB272B4ED5A10033A466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88C4EB332B4ED8A30033A466 /* WithRootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithRootNavigationController.swift; sourceTree = "<group>"; };
 		88C4EB372B4EDD130033A466 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		88C4EB422B4F2F480033A466 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		88C4EB442B4F33BA0033A466 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		88C4EB462B4F37390033A466 /* AuthDataResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataResultModel.swift; sourceTree = "<group>"; };
+		88C4EB492B4FFB2C0033A466 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		88C4EB4D2B502D310033A466 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		88C4EB4F2B503C9D0033A466 /* PasswordValidationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +122,7 @@
 		88C4EB3B2B4EE0610033A466 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				88C4EB252B4EBED10033A466 /* HomeView.swift */,
+				88C4EB4D2B502D310033A466 /* HomeView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -144,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				88C4EB442B4F33BA0033A466 /* AuthManager.swift */,
+				88C4EB4F2B503C9D0033A466 /* PasswordValidationStatus.swift */,
+				88C4EB492B4FFB2C0033A466 /* Validator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -245,11 +251,13 @@
 				88C4EB472B4F37390033A466 /* AuthDataResultModel.swift in Sources */,
 				88C4EB122B4EBE690033A466 /* AppDelegate.swift in Sources */,
 				88C4EB452B4F33BA0033A466 /* AuthManager.swift in Sources */,
+				88C4EB4E2B502D310033A466 /* HomeView.swift in Sources */,
 				88C4EB432B4F2F480033A466 /* RegisterViewModel.swift in Sources */,
 				88C4EB342B4ED8A30033A466 /* WithRootNavigationController.swift in Sources */,
 				88C4EB142B4EBE690033A466 /* SceneDelegate.swift in Sources */,
+				88C4EB4A2B4FFB2C0033A466 /* Validator.swift in Sources */,
 				88C4EB382B4EDD130033A466 /* RegisterView.swift in Sources */,
-				88C4EB262B4EBED10033A466 /* HomeView.swift in Sources */,
+				88C4EB502B503C9D0033A466 /* PasswordValidationStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

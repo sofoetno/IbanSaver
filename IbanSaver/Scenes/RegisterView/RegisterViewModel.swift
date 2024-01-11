@@ -13,6 +13,10 @@ final class RegisterViewModel: ObservableObject {
     // MARK: - Properties
     @Published var email = ""
     @Published var password = ""
+    @Published var repeatPassword = ""
+    @Published var isEmailValid: Bool = false
+    
+    @Published var passwordStatus = PasswordValidationStatus()
     
     // MARK: - Methods
     func signUp() {
@@ -29,6 +33,11 @@ final class RegisterViewModel: ObservableObject {
                 print(error)
             }
         }
+    }
+    
+    // MARK: - Methods
+    func isFormValid() -> Bool {
+        return isEmailValid && passwordStatus.isPasswordValid
     }
     
 }

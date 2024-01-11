@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63E9E98C2B5024010028547E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9E98B2B5024010028547E /* SignInView.swift */; };
+		63E9E98F2B50241F0028547E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9E98E2B50241F0028547E /* SignInViewModel.swift */; };
 		88C4EB122B4EBE690033A466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB112B4EBE690033A466 /* AppDelegate.swift */; };
 		88C4EB142B4EBE690033A466 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB132B4EBE690033A466 /* SceneDelegate.swift */; };
 		88C4EB1B2B4EBE6B0033A466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C4EB1A2B4EBE6B0033A466 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63E9E98B2B5024010028547E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		63E9E98E2B50241F0028547E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		88C4EB0E2B4EBE690033A466 /* IbanSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IbanSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C4EB112B4EBE690033A466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88C4EB132B4EBE690033A466 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63E9E98D2B50240C0028547E /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				63E9E98B2B5024010028547E /* SignInView.swift */,
+				63E9E98E2B50241F0028547E /* SignInViewModel.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 		88C4EB052B4EBE690033A466 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +107,7 @@
 		88C4EB392B4EE03E0033A466 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				63E9E98D2B50240C0028547E /* SignIn */,
 				88C4EB3B2B4EE0610033A466 /* HomeView */,
 				88C4EB3C2B4EE06B0033A466 /* RegisterView */,
 			);
@@ -233,11 +247,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63E9E98C2B5024010028547E /* SignInView.swift in Sources */,
 				88C4EB122B4EBE690033A466 /* AppDelegate.swift in Sources */,
 				88C4EB342B4ED8A30033A466 /* WithRootNavigationController.swift in Sources */,
 				88C4EB142B4EBE690033A466 /* SceneDelegate.swift in Sources */,
 				88C4EB382B4EDD130033A466 /* RegisterView.swift in Sources */,
 				88C4EB262B4EBED10033A466 /* HomeView.swift in Sources */,
+				63E9E98F2B50241F0028547E /* SignInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

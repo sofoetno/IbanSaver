@@ -19,6 +19,8 @@
 		88C4EB312B4ED67D0033A466 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 88C4EB302B4ED67D0033A466 /* FirebaseAuth */; };
 		88C4EB342B4ED8A30033A466 /* WithRootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB332B4ED8A30033A466 /* WithRootNavigationController.swift */; };
 		88C4EB382B4EDD130033A466 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB372B4EDD130033A466 /* RegisterView.swift */; };
+		C40A3EC12B5051D300EE284B /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A3EC02B5051D300EE284B /* PersonModel.swift */; };
+		C40A3EC32B5051DE00EE284B /* IbanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A3EC22B5051DE00EE284B /* IbanModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		88C4EB272B4ED5A10033A466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88C4EB332B4ED8A30033A466 /* WithRootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithRootNavigationController.swift; sourceTree = "<group>"; };
 		88C4EB372B4EDD130033A466 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		C40A3EC02B5051D300EE284B /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
+		C40A3EC22B5051DE00EE284B /* IbanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 		88C4EB3D2B4EE0820033A466 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C40A3EC02B5051D300EE284B /* PersonModel.swift */,
+				C40A3EC22B5051DE00EE284B /* IbanModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -233,8 +239,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C40A3EC12B5051D300EE284B /* PersonModel.swift in Sources */,
 				88C4EB122B4EBE690033A466 /* AppDelegate.swift in Sources */,
 				88C4EB342B4ED8A30033A466 /* WithRootNavigationController.swift in Sources */,
+				C40A3EC32B5051DE00EE284B /* IbanModel.swift in Sources */,
 				88C4EB142B4EBE690033A466 /* SceneDelegate.swift in Sources */,
 				88C4EB382B4EDD130033A466 /* RegisterView.swift in Sources */,
 				88C4EB262B4EBED10033A466 /* HomeView.swift in Sources */,

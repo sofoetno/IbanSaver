@@ -39,7 +39,7 @@ struct RegisterView: View, WithRootNavigationController {
                         .background(registerViewModel.isFormValid() ? Color.blue : Color.gray)
                         .cornerRadius(10)
                 }
-
+                
             } else {
                 
                 HStack(spacing: 12) {
@@ -63,7 +63,7 @@ struct RegisterView: View, WithRootNavigationController {
                     
                     SecureField("Password...", text: $registerViewModel.password)
                         .onChange(of: registerViewModel.password) { oldValue, newValue in
-                                
+                            
                             registerViewModel.passwordStatus = Validator.validatePassword(password: newValue)
                         }
                         .frame(maxWidth: .infinity)
@@ -74,7 +74,7 @@ struct RegisterView: View, WithRootNavigationController {
                         .cornerRadius(16)
                 }
                 .padding(.vertical, 10)
-
+                
                 // MARK: - Password chek
                 VStack(alignment: .leading, spacing: 10) {
                     displayPasswordValidation(title: "Uppercase", conditation: registerViewModel.passwordStatus.containsUppercase)
@@ -86,11 +86,11 @@ struct RegisterView: View, WithRootNavigationController {
                     displayPasswordValidation(title: "Symbols(?#@...)", conditation: registerViewModel.passwordStatus.containsSymbol)
                     
                     displayPasswordValidation(title: "Min 8 characters", conditation: registerViewModel.passwordStatus.passwordLength)
-
+                    
                 }
                 .foregroundColor(.red)
                 .padding(.vertical, 40)
-                    
+                
                 // MARK: - Components
                 Button {
                     Task {
@@ -119,9 +119,21 @@ struct RegisterView: View, WithRootNavigationController {
                 .alert(isPresented: $showAlert) {
                     Alert(title: Text("Error"), message: Text("the user is already registered"), dismissButton: .default(Text("OK")))
                 }
+                
+                Button {
+                    goToLogin()
+                } label: {
+                    Text("Go to Login")
+                        .font(.headline)
+                        .foregroundStyle(.white)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
             }
             
-          
+            
         }
         .padding(.horizontal, 24)
     }

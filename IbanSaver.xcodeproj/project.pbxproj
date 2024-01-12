@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		63E9E98C2B5024010028547E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9E98B2B5024010028547E /* SignInView.swift */; };
-		63E9E98F2B50241F0028547E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9E98E2B50241F0028547E /* SignInViewModel.swift */; };
 		2E4A6FF52B511D8300E5228F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FF42B511D8300E5228F /* ColorExtension.swift */; };
 		2E4A6FF72B511DD800E5228F /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FF62B511DD800E5228F /* ButtonExtension.swift */; };
 		2E4A6FF92B5120B300E5228F /* CustomTextFieldStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FF82B5120B300E5228F /* CustomTextFieldStyleView.swift */; };
 		2E4A6FFB2B51213000E5228F /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FFA2B51213000E5228F /* ListRowView.swift */; };
 		2E4A6FFD2B51237000E5228F /* AddItemComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FFC2B51237000E5228F /* AddItemComponentView.swift */; };
+		63E9E98C2B5024010028547E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9E98B2B5024010028547E /* SignInView.swift */; };
+		63E9E98F2B50241F0028547E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9E98E2B50241F0028547E /* SignInViewModel.swift */; };
 		88C4EB122B4EBE690033A466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB112B4EBE690033A466 /* AppDelegate.swift */; };
 		88C4EB142B4EBE690033A466 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB132B4EBE690033A466 /* SceneDelegate.swift */; };
 		88C4EB1B2B4EBE6B0033A466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C4EB1A2B4EBE6B0033A466 /* Assets.xcassets */; };
@@ -31,13 +31,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		63E9E98B2B5024010028547E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		63E9E98E2B50241F0028547E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		2E4A6FF42B511D8300E5228F /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		2E4A6FF62B511DD800E5228F /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		2E4A6FF82B5120B300E5228F /* CustomTextFieldStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldStyleView.swift; sourceTree = "<group>"; };
 		2E4A6FFA2B51213000E5228F /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		2E4A6FFC2B51237000E5228F /* AddItemComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemComponentView.swift; sourceTree = "<group>"; };
+		63E9E98B2B5024010028547E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		63E9E98E2B50241F0028547E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		88C4EB0E2B4EBE690033A466 /* IbanSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IbanSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C4EB112B4EBE690033A466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88C4EB132B4EBE690033A466 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -433,6 +433,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,6 +462,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

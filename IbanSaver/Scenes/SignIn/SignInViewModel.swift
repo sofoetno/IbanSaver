@@ -5,30 +5,32 @@
 //  Created by David on 1/11/24.
 //
 
-import SwiftUI
 import Firebase
-import UIKit
 
 final class SignInViewModel: ObservableObject {
+    
+    // MARK: - Properties
     @Published var email = ""
     @Published var password = ""
     @Published var isActive = false
+    @Published var showAlert = false
+    var error = ""
     
+    // MARK: - Sign In Function
     func signIn() {
-        Auth.auth().signIn(withEmail: email, password: password) { Result, error in
-            switch Result {
-            case.none:
-                print("X")
-            case.some(let data):
-                
-                print(data.user.email, "Success")
-                //self.push(viewController: UIHostingController(rootView: SignInView()), animated: true)
-                
-            }
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
+            guard let self = self else { return }
+            
             if let error = error {
-                print(error, "sdasdasd")
+                self.error = error.localizedDescription
+                self.showAlert = true
+            } else if let user = result?.user {
+                self.isActive = true
             }
         }
     }
     
+    func faceID() {
+        // FaceID Logic
+    }
 }

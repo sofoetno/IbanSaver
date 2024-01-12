@@ -10,55 +10,58 @@ import UIKit
 
 struct SignInView: View, WithRootNavigationController {
     
+    // MARK: - Properties
     @StateObject var model = SignInViewModel()
     
+    // MARK: - Body
     var body: some View {
+        
+        // MARK: - Header
+        VStack {
             
-            VStack {
-                
-                Label(
-                    title: {
-                        
-                        Text("Login")
-                            .fontWeight(.bold)
-                        
-                    },
-                    icon: {
-                        
-                        Image(systemName: "person.badge.shield.checkmark")
-                        
-                    }
-                )
-                .font(.system(size: 30))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .foregroundStyle(.purple)
-                
-                Group {
+            Label(
+                title: {
                     
-                    CustomTextfield(text: $model.email, placeholder: "Email", image: "envelope")
+                    Text("Login")
+                        .fontWeight(.bold)
                     
-                    CustomTextfield(text: $model.password, placeholder: "Password", image: "key.viewfinder")
+                },
+                icon: {
+                    
+                    Image(systemName: "person.badge.shield.checkmark")
                     
                 }
-                .textFieldStyle(.plain)
-                .padding(.vertical, 4)
-                .multilineTextAlignment(.center)
-                .padding(.trailing, 40)
-                .foregroundStyle(.purple)
+            )
+            .font(.system(size: 30))
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding()
+            .foregroundStyle(.primary)
+            .padding(40)
+            
+            // MARK: - Text Fields and Forgot Password
+            VStack(spacing: 12) {
+
+                CustomTextFieldWithIcon(text: $model.email, placeholder: "Email", iconName: "")
                 
-                Text("Forgot Password?")
-                    .fontWeight(.thin)
-                    .padding()
-                    .foregroundStyle(.purple)
+                CustomTextFieldWithIcon(text: $model.password, placeholder: "Password", iconName: "")
+                
+                Button(action: {
+                    
+                }, label: {
+                    Text("Forgot Password?")
+                        .fontWeight(.thin)
+                        .padding()
+                        .foregroundStyle(AppColors.darkGray)
+                })
+            }
+            .padding(.vertical, 40)
+            
+            // MARK: - Sign In and Face ID Buttons
+            VStack(spacing: 12) {
                 
                 Button(action: {
                     
                     model.signIn()
-                    
-                    if model.isActive {
-                        self.push(viewController: UIHostingController(rootView: RegisterView()), animated: true)
-                    }
                     
                 }, label: {
                     
@@ -67,62 +70,44 @@ struct SignInView: View, WithRootNavigationController {
                         .fontWeight(.bold)
                     
                 })
-                .buttonStyle(.bordered)
-                .tint(.purple)
-                
+                .primaryButtonStyle
+                .alert(isPresented: $model.showAlert) {
+                    Alert(title: Text("Important message"), message: Text(model.error), dismissButton: .default(Text("Got it!")))
+                }
+                .onChange(of: model.isActive) { oldValue, newValue in
+                    if newValue == true {
+                        self.push(viewController: UIHostingController(rootView: RegisterView()), animated: true)
+                        model.isActive = false
+                    }
+                }
                 
                 
                 Button(action: {
+                    // Handle Face ID action
                     
                 }, label: {
                     
-                    Label("Face ID", systemImage: "faceid")
-                        .labelStyle(.automatic)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .fontWeight(.bold)
-                    
+                    HStack {
+                        
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(AppColors.primary, lineWidth: 1)
+                            .frame(width: 54, height: 54)
+                            .overlay(
+                                Image(systemName: "faceid")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                            )
+                    }
                 })
-                .buttonStyle(.bordered)
-                .tint(.purple)
+                .secondaryButtonStyle
             }
-            .padding()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.horizontal, 24)
+        .background(AppColors.white)
     }
 }
 
 #Preview {
     SignInView()
-}
-
-struct CustomTextfield: View {
-    
-    @Binding var text: String
-    let placeholder: String
-    let image: String
-    
-    var body: some View {
-        
-        HStack {
-            
-            Image(systemName: image)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 30, height: 30)
-            
-            VStack {
-                TextField(text: $text) {
-                    
-                    Text(placeholder)
-                        .fontWeight(.ultraLight)
-                    
-                }
-                
-                Rectangle()
-                    .frame(height: 0.3)
-                    .foregroundColor(.purple)
-                    .padding(.leading, 16)
-                    .padding(.trailing, 16)
-                
-            }
-        }
-    }
 }

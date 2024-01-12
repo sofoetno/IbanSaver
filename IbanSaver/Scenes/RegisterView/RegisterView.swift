@@ -23,6 +23,10 @@ struct RegisterView: View, WithRootNavigationController {
             
             if registrationSuccess {
                 RegistrationCompletedView()
+                Text("Your account has been successfully cteated!")
+                    .multilineTextAlignment(.center)
+                    .font(.title)
+                    .foregroundStyle(.gray)
                     .padding(.vertical, 40)
                 Button {
                     goToLogin()

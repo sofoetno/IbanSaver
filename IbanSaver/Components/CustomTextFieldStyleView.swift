@@ -11,7 +11,7 @@ struct CustomTextFieldWithIcon: View {
     @Binding var text: String
     var placeholder: String
     var iconName: String
-
+    
     var body: some View {
         HStack {
             TextField(placeholder, text: $text)

@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct ListRowView: View {
     
     //MARK: - Properties
@@ -79,7 +77,7 @@ struct ListRowView: View {
     private var titleView: some View {
         Text(textLabel)
             .font(Font.system(size: 14))
-
+        
     }
     
     private var actionView: some View {

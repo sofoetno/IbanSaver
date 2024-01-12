@@ -40,19 +40,29 @@ struct SignInView: View, WithRootNavigationController {
             
             // MARK: - Text Fields and Forgot Password
             VStack(spacing: 12) {
-
+                
                 CustomTextFieldWithIcon(text: $model.email, placeholder: "Email", iconName: "")
                 
-                CustomTextFieldWithIcon(text: $model.password, placeholder: "Password", iconName: "")
+                CustomSecureFieldWithIcon(text: $model.password, placeholder: "Password", iconName: "")
                 
                 Button(action: {
-                    
+                    model.forgot()
                 }, label: {
                     Text("Forgot Password?")
                         .fontWeight(.thin)
                         .padding()
                         .foregroundStyle(AppColors.darkGray)
                 })
+                .alert(isPresented: $model.forgotAlert) {
+                    switch model.forgotType {
+                    case .fail:
+                        Alert(title: Text("Password Reset"), message: Text(model.forgotResponse), dismissButton: .default(Text("OK")))
+                    case .success:
+                        Alert(title: Text("Password Reset"), message: Text(model.forgotResponse), dismissButton: .default(Text("OK")))
+                    case .none:
+                        Alert(title: Text("Password Reset"), message: Text(model.error), dismissButton: .default(Text("OK")))
+                    }
+                }
             }
             .padding(.vertical, 40)
             
@@ -61,7 +71,7 @@ struct SignInView: View, WithRootNavigationController {
                 
                 Button(action: {
                     
-                    model.signIn()
+                    model.signIn(email: model.email, password: model.password)
                     
                 }, label: {
                     
@@ -72,7 +82,20 @@ struct SignInView: View, WithRootNavigationController {
                 })
                 .primaryButtonStyle
                 .alert(isPresented: $model.showAlert) {
-                    Alert(title: Text("Important message"), message: Text(model.error), dismissButton: .default(Text("Got it!")))
+                    switch model.alertType {
+                    case.mainAlert:
+                        Alert(title: Text("Important message"), message: Text(model.error), dismissButton: .default(Text("OK")))
+                    case.IDAlert:
+                        Alert(title: Text("ID Message"), message: Text(model.error),
+                              primaryButton: .default(Text("Yes")) {
+                            model.writeID()
+                        },
+                              secondaryButton: .default(Text("No")))
+                    case.IDFail:
+                        Alert(title: Text("Face ID"), message: Text("Face ID is not set up, please sign in first."), dismissButton: .default(Text("OK")))
+                    case .none:
+                        Alert(title: Text("NONE Message"), message: Text(model.error), dismissButton: .default(Text("OK")))
+                    }
                 }
                 .onChange(of: model.isActive) { oldValue, newValue in
                     if newValue == true {
@@ -81,9 +104,23 @@ struct SignInView: View, WithRootNavigationController {
                     }
                 }
                 
+                Button(action: {
+                    
+                    self.push(viewController: UIHostingController(rootView: RegisterView()), animated: true)
+                    
+                }, label: {
+                    
+                    Text("Register")
+                        .frame(maxWidth: .infinity)
+                        .fontWeight(.bold)
+                    
+                })
+                .primaryButtonStyle
+                
                 
                 Button(action: {
                     // Handle Face ID action
+                    model.faceID()
                     
                 }, label: {
                     

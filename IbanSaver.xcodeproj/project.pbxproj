@@ -12,6 +12,7 @@
 		2E4A6FF92B5120B300E5228F /* CustomTextFieldStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FF82B5120B300E5228F /* CustomTextFieldStyleView.swift */; };
 		2E4A6FFB2B51213000E5228F /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FFA2B51213000E5228F /* ListRowView.swift */; };
 		2E4A6FFD2B51237000E5228F /* AddItemComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FFC2B51237000E5228F /* AddItemComponentView.swift */; };
+		637623752B51EFFE006A20FE /* CustomSecureFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637623742B51EFFE006A20FE /* CustomSecureFieldView.swift */; };
 		63E9E98C2B5024010028547E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9E98B2B5024010028547E /* SignInView.swift */; };
 		63E9E98F2B50241F0028547E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9E98E2B50241F0028547E /* SignInViewModel.swift */; };
 		88C4EB122B4EBE690033A466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB112B4EBE690033A466 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 		2E4A6FF82B5120B300E5228F /* CustomTextFieldStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldStyleView.swift; sourceTree = "<group>"; };
 		2E4A6FFA2B51213000E5228F /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		2E4A6FFC2B51237000E5228F /* AddItemComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemComponentView.swift; sourceTree = "<group>"; };
+		637623742B51EFFE006A20FE /* CustomSecureFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureFieldView.swift; sourceTree = "<group>"; };
 		63E9E98B2B5024010028547E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		63E9E98E2B50241F0028547E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		88C4EB0E2B4EBE690033A466 /* IbanSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IbanSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				2E4A6FF82B5120B300E5228F /* CustomTextFieldStyleView.swift */,
+				637623742B51EFFE006A20FE /* CustomSecureFieldView.swift */,
 				2E4A6FFA2B51213000E5228F /* ListRowView.swift */,
 				2E4A6FFC2B51237000E5228F /* AddItemComponentView.swift */,
 			);
@@ -277,6 +280,7 @@
 				88C4EB342B4ED8A30033A466 /* WithRootNavigationController.swift in Sources */,
 				2E4A6FF52B511D8300E5228F /* ColorExtension.swift in Sources */,
 				C40A3EC32B5051DE00EE284B /* IbanModel.swift in Sources */,
+				637623752B51EFFE006A20FE /* CustomSecureFieldView.swift in Sources */,
 				2E4A6FFB2B51213000E5228F /* ListRowView.swift in Sources */,
 				88C4EB142B4EBE690033A466 /* SceneDelegate.swift in Sources */,
 				88C4EB382B4EDD130033A466 /* RegisterView.swift in Sources */,

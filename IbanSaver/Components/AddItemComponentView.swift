@@ -29,8 +29,7 @@ struct AddItemComponentView: View {
         }
         .padding(.horizontal, 24)
         .padding(.top, 40)
-        .padding(.bottom, 120)
-        .background(AppColors.white)
+        .padding(.bottom, 40)
     }
     
     private var settedInfoView: some View {
@@ -41,10 +40,7 @@ struct AddItemComponentView: View {
     }
     
     private var inputInfoView: some View {
-        VStack(spacing: 40) {
             inputListView
-            buttonView
-        }
     }
     
     private var avatarView: some View {
@@ -65,14 +61,14 @@ struct AddItemComponentView: View {
     private var inputListView: some View {
         VStack {
             if isAddPersonView {
-                CustomTextFieldWithIcon(
+                CustomTextFieldStyleView(
                     text: $fullName,
                     placeholder: "Full Name",
                     iconName: ""
                 )
             }
             
-            CustomTextFieldWithIcon(
+            CustomTextFieldStyleView(
                 text: $iBanNumber,
                 placeholder: "iBan Number",
                 iconName: "doc.viewfinder.fill"
@@ -94,12 +90,6 @@ struct AddItemComponentView: View {
         .background(AppColors.silver)
         .cornerRadius(16)
         .pickerStyle(.menu)
-    }
-    
-    private var buttonView: some View {
-        Button("Save") {
-        }
-        .primaryButtonStyle
     }
 }
 

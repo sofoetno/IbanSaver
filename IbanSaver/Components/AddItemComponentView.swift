@@ -61,14 +61,14 @@ struct AddItemComponentView: View {
     private var inputListView: some View {
         VStack {
             if isAddPersonView {
-                CustomTextFieldWithIcon(
+                CustomTextFieldStyleView(
                     text: $fullName,
                     placeholder: "Full Name",
                     iconName: ""
                 )
             }
             
-            CustomTextFieldWithIcon(
+            CustomTextFieldStyleView(
                 text: $iBanNumber,
                 placeholder: "iBan Number",
                 iconName: "doc.viewfinder.fill"

@@ -12,6 +12,7 @@
 		2E4A6FF92B5120B300E5228F /* CustomTextFieldStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FF82B5120B300E5228F /* CustomTextFieldStyleView.swift */; };
 		2E4A6FFB2B51213000E5228F /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FFA2B51213000E5228F /* ListRowView.swift */; };
 		2E4A6FFD2B51237000E5228F /* AddItemComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FFC2B51237000E5228F /* AddItemComponentView.swift */; };
+		88AE944F2B518C360020F5E6 /* RegistrationCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE944E2B518C360020F5E6 /* RegistrationCompletedView.swift */; };
 		88C4EB122B4EBE690033A466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB112B4EBE690033A466 /* AppDelegate.swift */; };
 		88C4EB142B4EBE690033A466 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB132B4EBE690033A466 /* SceneDelegate.swift */; };
 		88C4EB1B2B4EBE6B0033A466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C4EB1A2B4EBE6B0033A466 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		2E4A6FF82B5120B300E5228F /* CustomTextFieldStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldStyleView.swift; sourceTree = "<group>"; };
 		2E4A6FFA2B51213000E5228F /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		2E4A6FFC2B51237000E5228F /* AddItemComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemComponentView.swift; sourceTree = "<group>"; };
+		88AE944E2B518C360020F5E6 /* RegistrationCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCompletedView.swift; sourceTree = "<group>"; };
 		88C4EB0E2B4EBE690033A466 /* IbanSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IbanSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C4EB112B4EBE690033A466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88C4EB132B4EBE690033A466 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				2E4A6FF82B5120B300E5228F /* CustomTextFieldStyleView.swift */,
+				88AE944E2B518C360020F5E6 /* RegistrationCompletedView.swift */,
 				2E4A6FFA2B51213000E5228F /* ListRowView.swift */,
 				2E4A6FFC2B51237000E5228F /* AddItemComponentView.swift */,
 			);
@@ -271,6 +274,7 @@
 			files = (
 				88C4EB472B4F37390033A466 /* AuthDataResultModel.swift in Sources */,
 				88C4EB122B4EBE690033A466 /* AppDelegate.swift in Sources */,
+				88AE944F2B518C360020F5E6 /* RegistrationCompletedView.swift in Sources */,
 				88C4EB452B4F33BA0033A466 /* AuthManager.swift in Sources */,
 				88C4EB4E2B502D310033A466 /* HomeView.swift in Sources */,
 				88C4EB432B4F2F480033A466 /* RegisterViewModel.swift in Sources */,

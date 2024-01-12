@@ -13,7 +13,6 @@ final class RegisterViewModel: ObservableObject {
     // MARK: - Properties
     @Published var email = ""
     @Published var password = ""
-    @Published var repeatPassword = ""
     @Published var isEmailValid: Bool = false
     @Published var passwordStatus = PasswordValidationStatus()
     

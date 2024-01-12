@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OnboardingView: View {
+struct OnboardingView: View, WithRootNavigationController {
     
     //MARK: - Properties
     var screenWidth = UIScreen.main.bounds.width
@@ -84,6 +84,7 @@ struct OnboardingView: View {
                     } else {
                         Button(action: {
                             UserDefaults.standard.set(true, forKey: "has-seen-onboarding")
+                            goToLoginView()
                         }, label: {
                             Text("Get Started")
                                 .foregroundStyle(AppColors.white)
@@ -115,6 +116,10 @@ struct OnboardingView: View {
         withAnimation{
             xOffset = -screenWidth * CGFloat(currentPage)
         }
+    }
+    
+    func goToLoginView() {
+        self.push(viewController: UIHostingController(rootView: HomeView()), animated: true)
     }
 }
 

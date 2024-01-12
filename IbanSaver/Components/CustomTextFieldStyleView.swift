@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomTextFieldWithIcon: View {
+struct CustomTextFieldStyleView: View {
     @Binding var text: String
     var placeholder: String
     var iconName: String

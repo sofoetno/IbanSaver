@@ -7,15 +7,44 @@
 
 import SwiftUI
 
+struct RegistrationCompleted: View {
+    @State private var scale: CGFloat = 1
+    
+    var body: some View {
+        VStack {
+            Image(systemName: "checkmark.circle")
+                .frame(width: 50, height: 50)
+                .foregroundColor(.green)
+                .scaleEffect(scale)
+                .animation(.easeInOut(duration: 1).repeatCount(3, autoreverses: true), value: scale)
+                .onAppear {
+                    scale = 3
+                }
+            
+            Text("Success")
+                .foregroundColor(.green)
+                .font(.title)
+                .fontWeight(.bold)
+        }
+    }
+}
+
 struct RegisterView: View {
     
     // MARK: - Properties
     @StateObject private var registerViewModel = RegisterViewModel()
+    @State private var showAlert = false
+    @State private var registrationSuccess = false
+    
     
     // MARK: - Body
     var body: some View {
         
         VStack {
+            
+            if registrationSuccess {
+                RegistrationCompleted()
+            }
             
             VStack {
                 TextField("Enter your Email", text: $registerViewModel.email)
@@ -52,10 +81,20 @@ struct RegisterView: View {
             .foregroundColor(.red)
             .padding(.vertical, 20)
                 
-
-            
             Button {
-                registerViewModel.signUp()
+                Task {
+                    let result = await registerViewModel.signUp()
+                    switch result {
+                    case .success:
+                        print("")
+                        registerViewModel.clearForm()
+                        registrationSuccess = true
+                        
+                    case .failure:
+                        showAlert = true
+                        registerViewModel.clearForm()
+                    }
+                }
             } label: {
                 Text("Register")
                     .font(.headline)
@@ -66,6 +105,9 @@ struct RegisterView: View {
                     .cornerRadius(10)
             }
             .disabled(!registerViewModel.isFormValid())
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Error"), message: Text("Registration incomplete. Please try again."), dismissButton: .default(Text("OK")))
+            }
         }
         .padding()
     }

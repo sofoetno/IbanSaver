@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct RegisterView: View {
+struct RegisterView: View, WithRootNavigationController {
     
     // MARK: - Properties
     @StateObject private var registerViewModel = RegisterViewModel()
@@ -25,7 +25,7 @@ struct RegisterView: View {
                 RegistrationCompletedView()
                     .padding(.vertical, 40)
                 Button {
-                    
+                    goToLogin()
                 } label: {
                     Text("Continue")
                         .font(.headline)
@@ -126,6 +126,10 @@ struct RegisterView: View {
     func displayPasswordValidation(title: String, conditation: Bool) -> some View {
         Label(title, systemImage: conditation ? "checkmark.seal" : "x.square")
             .foregroundColor(conditation ? .green : .red)
+    }
+    
+    func goToLogin() {
+        self.push(viewController: UIHostingController(rootView: HomeView()), animated: true)
     }
 }
 

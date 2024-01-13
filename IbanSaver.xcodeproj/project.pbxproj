@@ -13,6 +13,11 @@
 		2E4A6FFB2B51213000E5228F /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FFA2B51213000E5228F /* ListRowView.swift */; };
 		2E4A6FFD2B51237000E5228F /* AddItemComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FFC2B51237000E5228F /* AddItemComponentView.swift */; };
 		88AE944F2B518C360020F5E6 /* RegistrationCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE944E2B518C360020F5E6 /* RegistrationCompletedView.swift */; };
+		2E4A70002B51813F00E5228F /* OnboardingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A6FFF2B51813F00E5228F /* OnboardingItems.swift */; };
+		2E4A70022B51853000E5228F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A70012B51853000E5228F /* OnboardingView.swift */; };
+		2E4A70042B527B7D00E5228F /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A70032B527B7D00E5228F /* OnboardingViewModel.swift */; };
+		2E4A70062B52A2DD00E5228F /* OnboardingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A70052B52A2DD00E5228F /* OnboardingItemView.swift */; };
+		2E4A70082B52A7AD00E5228F /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A70072B52A7AD00E5228F /* PageControlView.swift */; };
 		88C4EB122B4EBE690033A466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB112B4EBE690033A466 /* AppDelegate.swift */; };
 		88C4EB142B4EBE690033A466 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EB132B4EBE690033A466 /* SceneDelegate.swift */; };
 		88C4EB1B2B4EBE6B0033A466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C4EB1A2B4EBE6B0033A466 /* Assets.xcassets */; };
@@ -41,6 +46,11 @@
 		2E4A6FFA2B51213000E5228F /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		2E4A6FFC2B51237000E5228F /* AddItemComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemComponentView.swift; sourceTree = "<group>"; };
 		88AE944E2B518C360020F5E6 /* RegistrationCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCompletedView.swift; sourceTree = "<group>"; };
+		2E4A6FFF2B51813F00E5228F /* OnboardingItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItems.swift; sourceTree = "<group>"; };
+		2E4A70012B51853000E5228F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		2E4A70032B527B7D00E5228F /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		2E4A70052B52A2DD00E5228F /* OnboardingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItemView.swift; sourceTree = "<group>"; };
+		2E4A70072B52A7AD00E5228F /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
 		88C4EB0E2B4EBE690033A466 /* IbanSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IbanSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C4EB112B4EBE690033A466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88C4EB132B4EBE690033A466 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +85,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E4A6FFE2B5180E300E5228F /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				2E4A70012B51853000E5228F /* OnboardingView.swift */,
+				2E4A70032B527B7D00E5228F /* OnboardingViewModel.swift */,
+				2E4A70072B52A7AD00E5228F /* PageControlView.swift */,
+			);
+			path = OnboardingView;
+			sourceTree = "<group>";
+		};
 		88C4EB052B4EBE690033A466 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +140,7 @@
 		88C4EB392B4EE03E0033A466 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2E4A6FFE2B5180E300E5228F /* OnboardingView */,
 				88C4EB3B2B4EE0610033A466 /* HomeView */,
 				88C4EB3C2B4EE06B0033A466 /* RegisterView */,
 			);
@@ -159,6 +180,7 @@
 				C40A3EC02B5051D300EE284B /* PersonModel.swift */,
 				C40A3EC22B5051DE00EE284B /* IbanModel.swift */,
 				88C4EB4F2B503C9D0033A466 /* PasswordValidationStatus.swift */,
+				2E4A6FFF2B51813F00E5228F /* OnboardingItems.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,6 +210,7 @@
 				88AE944E2B518C360020F5E6 /* RegistrationCompletedView.swift */,
 				2E4A6FFA2B51213000E5228F /* ListRowView.swift */,
 				2E4A6FFC2B51237000E5228F /* AddItemComponentView.swift */,
+				2E4A70052B52A2DD00E5228F /* OnboardingItemView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -278,14 +301,19 @@
 				88C4EB452B4F33BA0033A466 /* AuthManager.swift in Sources */,
 				88C4EB4E2B502D310033A466 /* HomeView.swift in Sources */,
 				88C4EB432B4F2F480033A466 /* RegisterViewModel.swift in Sources */,
+				2E4A70062B52A2DD00E5228F /* OnboardingItemView.swift in Sources */,
 				2E4A6FF72B511DD800E5228F /* ButtonExtension.swift in Sources */,
+				2E4A70002B51813F00E5228F /* OnboardingItems.swift in Sources */,
 				2E4A6FFD2B51237000E5228F /* AddItemComponentView.swift in Sources */,
 				C40A3EC12B5051D300EE284B /* PersonModel.swift in Sources */,
 				88C4EB122B4EBE690033A466 /* AppDelegate.swift in Sources */,
 				2E4A6FF92B5120B300E5228F /* CustomTextFieldStyleView.swift in Sources */,
 				88C4EB342B4ED8A30033A466 /* WithRootNavigationController.swift in Sources */,
 				2E4A6FF52B511D8300E5228F /* ColorExtension.swift in Sources */,
+				2E4A70082B52A7AD00E5228F /* PageControlView.swift in Sources */,
 				C40A3EC32B5051DE00EE284B /* IbanModel.swift in Sources */,
+				2E4A70022B51853000E5228F /* OnboardingView.swift in Sources */,
+				2E4A70042B527B7D00E5228F /* OnboardingViewModel.swift in Sources */,
 				2E4A6FFB2B51213000E5228F /* ListRowView.swift in Sources */,
 				88C4EB142B4EBE690033A466 /* SceneDelegate.swift in Sources */,
 				88C4EB4A2B4FFB2C0033A466 /* Validator.swift in Sources */,

@@ -10,153 +10,110 @@ import SwiftUI
 struct OnboardingView: View, WithRootNavigationController {
     
     //MARK: - Properties
+    @ObservedObject private var viewModel = OnboardingViewModel()
     var screenWidth = UIScreen.main.bounds.width
-    @State var xOffset: CGFloat = 0
-    @State var currentPage = 0
-    var lastPage = OBData.count - 1
-    var firstPage = 0
-    @Namespace var namespace
+    @Namespace private var pageControlNamespace
     
     //MARK: - Body
     var body: some View {
+        mainContainerView
+    }
+    
+    //MARK: - Components
+    private var mainContainerView: some View {
         ZStack {
-            GeometryReader { reader in
-                HStack(spacing: 0) {
-                    ForEach(OBData) { item in
-                        ItemView(item: item)
-                            .frame(width: screenWidth)
-                    }
+            geometryReaderView
+            bottomNavigationView
+        }
+    }
+    
+    private var geometryReaderView: some View {
+        GeometryReader { reader in
+            HStack(spacing: 0) {
+                ForEach(OBData) { item in
+                    OnboardingItemView(item: item)
+                        .frame(width: screenWidth)
                 }
-                .offset(x: xOffset)
-                .gesture(
-                    DragGesture()
-                        .onChanged({ value in
-                            onChanged(value: value)
-                        })
-                        .onEnded({ value in
-                            onEnded(value: value)
-                        })
-                )
             }
+            .offset(x: viewModel.xOffset)
+            .gesture(
+                DragGesture()
+                    .onChanged({ value in
+                        viewModel.onChanged(value: value, screenWidth: screenWidth)
+                    })
+                    .onEnded({ value in
+                        viewModel.onEnded(value: value, screenWidth: screenWidth)
+                    })
+            )
+        }
+    }
+    
+    private var bottomNavigationView: some View {
+        VStack(spacing: 20) {
+            Spacer()
+            PageControlView(currentPage: $viewModel.currentPage, pageCount: OBData.count, namespace: pageControlNamespace)
             
-            VStack(spacing: 20) {
-                Spacer()
-                ZStack {
-                    HStack(spacing: 6) {
-                        ForEach(0..<OBData.count) { i in
-                            if i == currentPage {
-                                Capsule()
-                                    .matchedGeometryEffect(id: "page", in: namespace)
-                                    .frame(width: 18, height: 6)
-                                    .animation(.default, value: currentPage)
-                            } else {
-                                Circle()
-                                    .frame(width: 6, height: 6)
-                            }
-                        }
-                    }
-                    .foregroundColor(AppColors.primary)
+            buttonsStackView
+        }
+    }
+    
+    private var buttonsStackView: some View {
+        ZStack {
+            if viewModel.currentPage != viewModel.lastPage {
+                HStack {
+                    skipButtonView
+                    Spacer()
+                    nextButtonView
                 }
-                
-                ZStack {
-                    if currentPage != lastPage {
-                        HStack {
-                            Button(action: {
-                                currentPage = lastPage
-                                withAnimation{xOffset = -screenWidth * CGFloat(currentPage)}
-                            }, label: {
-                                Text("Skip")
-                                    .frame(width: 60)
-                            })
-                            Spacer()
-                            
-                            Button(action: {
-                                currentPage += 1
-                                withAnimation{xOffset = -screenWidth * CGFloat(currentPage)}
-                            }, label: {
-                                Text("Next")
-                                    .frame(width: 60)
-                            })
-                        }
-                        .frame(height: 60)
-                        .foregroundColor(AppColors.darkGray)
-                    } else {
-                        Button(action: {
-                            UserDefaults.standard.set(true, forKey: "has-seen-onboarding")
-                            goToLoginView()
-                        }, label: {
-                            Text("Get Started")
-                                .foregroundStyle(AppColors.white)
-                                .fontWeight(.semibold)
-                                .frame(height: 60)
-                                .frame(maxWidth: .infinity)
-                                .background(Capsule().fill(AppColors.primary))
-                        })
-                    }
-                }
-                .padding(.horizontal)
+                .frame(height: 60)
+                .foregroundColor(AppColors.darkGray)
+            } else {
+                getStartedButtonView
             }
         }
+        .padding(.horizontal)
     }
     
-    //MARK: - Methods
-    func onChanged(value: DragGesture.Value) {
-        xOffset = value.translation.width - (screenWidth * CGFloat(currentPage))
-    }
-    
-    func onEnded(value: DragGesture.Value) {
-        if -value.translation.width > screenWidth / 2 && currentPage < lastPage {
-            currentPage += 1
-        } else {
-            if value.translation.width > screenWidth / 2 && currentPage > firstPage {
-                currentPage -= 1
+    private var skipButtonView: some View {
+        Button(action: {
+            viewModel.currentPage = viewModel.lastPage
+            withAnimation {
+                viewModel.xOffset = -screenWidth * CGFloat(viewModel.currentPage)
             }
-        }
-        withAnimation{
-            xOffset = -screenWidth * CGFloat(currentPage)
-        }
+        }, label: {
+            Text("Skip")
+                .frame(width: 60)
+        })
     }
     
-    func goToLoginView() {
-        self.push(viewController: UIHostingController(rootView: HomeView()), animated: true)
+    private var nextButtonView: some View {
+        Button(action: {
+            viewModel.currentPage += 1
+            withAnimation {
+                viewModel.xOffset = -screenWidth * CGFloat(viewModel.currentPage)
+            }
+        }, label: {
+            Text("Next")
+                .frame(width: 60)
+        })
+    }
+    
+    private var getStartedButtonView: some View {
+        Button(action: {
+            UserDefaults.standard.set(true, forKey: "has-seen-onboarding")
+            self.push(viewController: UIHostingController(rootView: HomeView()), animated: true)
+        }, label: {
+            Text("Get Started")
+                .foregroundStyle(AppColors.white)
+                .fontWeight(.semibold)
+                .frame(height: 60)
+                .frame(maxWidth: .infinity)
+                .background(Capsule().fill(AppColors.primary))
+        })
     }
 }
 
-    //MARK: - Preview
+//MARK: - Preview
 #Preview {
     OnboardingView()
-}
-
-    //MARK: - ItemView
-struct ItemView: View {
-    
-    //MARK: - Properties
-    var item: OnboardingItem
-    
-    //MARK: - Body
-    var body: some View {
-        ZStack {
-            item.OBBGColor
-                .ignoresSafeArea(.all, edges: .all)
-            
-            VStack(alignment: .leading, spacing: 24) {
-                Image(item.OBImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(.top)
-                
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(item.OBTitle)
-                        .font(.system(size: 24, weight: .semibold))
-                        .animation(Animation.easeOut)
-                    Text(item.OBSubtitle)
-                        .font(.system(size: 20, weight: .regular))
-                        .foregroundStyle(AppColors.darkGray)
-                        .animation(Animation.easeOut)
-                }
-                Spacer()
-            }
-            .padding(.horizontal, 24)
-        }
-    }
 }

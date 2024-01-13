@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-
-
 struct RegisterView: View, WithRootNavigationController {
     
     // MARK: - Properties
@@ -32,13 +30,8 @@ struct RegisterView: View, WithRootNavigationController {
                     goToLogin()
                 } label: {
                     Text("Continue")
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                        .frame(height: 55)
-                        .frame(maxWidth: .infinity)
-                        .background(registerViewModel.isFormValid() ? Color.blue : Color.gray)
-                        .cornerRadius(10)
                 }
+                .primaryButtonStyle
                 
             } else {
                 
@@ -108,13 +101,14 @@ struct RegisterView: View, WithRootNavigationController {
                     }
                 } label: {
                     Text("Register")
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                        .frame(height: 55)
                         .frame(maxWidth: .infinity)
-                        .background(registerViewModel.isFormValid() ? Color.blue : Color.gray)
-                        .cornerRadius(10)
+                        .frame(height: 56)
+                        .foregroundColor(AppColors.white)
+                        .background(registerViewModel.isFormValid() ? AppColors.primary : AppColors.darkGray)
+                        .cornerRadius(40)
                 }
+                
+                .foregroundStyle(registerViewModel.isFormValid() ? AppColors.primary : AppColors.lightGray)
                 .disabled(!registerViewModel.isFormValid())
                 .alert(isPresented: $showAlert) {
                     Alert(title: Text("Error"), message: Text("the user is already registered"), dismissButton: .default(Text("OK")))
@@ -124,13 +118,8 @@ struct RegisterView: View, WithRootNavigationController {
                     goToLogin()
                 } label: {
                     Text("Go to Login")
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                        .frame(height: 55)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(10)
                 }
+                .secondaryButtonStyle
             }
             
             

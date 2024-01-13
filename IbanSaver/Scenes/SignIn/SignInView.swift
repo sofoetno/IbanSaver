@@ -41,7 +41,7 @@ struct SignInView: View, WithRootNavigationController {
             // MARK: - Text Fields and Forgot Password
             VStack(spacing: 12) {
                 
-                CustomTextFieldWithIcon(text: $model.email, placeholder: "Email", iconName: "")
+                CustomTextFieldStyleView(text: $model.email, placeholder: "Email", iconName: "")
                 
                 CustomSecureFieldWithIcon(text: $model.password, placeholder: "Password", iconName: "")
                 

@@ -17,6 +17,7 @@ struct OnboardingView: View, WithRootNavigationController {
     //MARK: - Body
     var body: some View {
         mainContainerView
+            .background(AppColors.silver)
     }
     
     //MARK: - Components

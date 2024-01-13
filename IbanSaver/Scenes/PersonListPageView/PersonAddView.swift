@@ -21,65 +21,66 @@ struct PersonAddView: View {
     var onSave: (PersonModel) -> Void
     
     var body: some View {
-        Form {
-            Section(header: Text("Personal Information")) {
-                TextField("Full Name", text: $fullName)
-                HStack {
-                    TextField("IBAN Number", text: $scannedText)
-                    
+        VStack {
+            
+            Image("male1")
+                .resizable()
+                .frame(width: 64, height: 64)
+                .cornerRadius(6)
+                .padding(.bottom, 50)
+            
+            VStack {
+                CustomTextFieldWithIcon(text: $fullName, placeholder: "Full Name", iconName: "")
+                    .padding(.bottom, 12)
+                CustomTextFieldWithClickableIconView(text: $ibanNumber, placeholder: "IBAN number", iconName: "doc.viewfinder.fill") {
                     if DataScannerViewController.isSupported {
-                        Button(action: {
-                            liveScan.toggle()
-                            print("Icon Clicked!")
-                        }) {
-                            Image(systemName: "camera")
-                                .font(.system(size: 20))
-                                .foregroundColor(.red)
-                        }
+                        liveScan.toggle()
+                        print("Icon Clicked!")
                     } else {
-                        Image(systemName: "line.3.crossed.swirl.circle.fill")
-                            .font(.system(size: 20))
-                            .foregroundColor(.red)
+                        print("not supported")
                     }
                 }
-            }
-            
-            Section(header: Text("Bank Selection")) {
-                Picker("Select Bank", selection: $selectedBank) {
+                .padding(.bottom, 12)
+                .listRowSeparator(.hidden)
+                
+                Picker("", selection: $selectedBank) {
                     ForEach(bankSelect.allCases, id: \.self) { bank in
                         Text(bank.rawValue)
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
+                .frame(maxWidth: .infinity)
+                .labelsHidden()
+                .frame(height: 56)
+                .background(AppColors.silver)
+                .cornerRadius(16)
+                .pickerStyle(.menu)
+                .listRowSeparator(.hidden)
             }
+            .padding(.horizontal, 24)
+            .padding(.bottom, 40)
+            .scrollContentBackground(.hidden)
+            .sheet(isPresented: $liveScan, content: {
+                LiveTextFromCameraScan(liveScan: $liveScan, scannedText: $scannedText)
+            })
             
-            Section {
+            VStack {
                 Button("Save") {
-                    print("Full Name: \(fullName)")
-                    print("IBAN Number: \(scannedText)")
-                    print("Selected Bank: \(selectedBank.rawValue)")
                     let newPerson = PersonModel(fullName: fullName, avatarName: "male1", savedIbans: [IbanModel(ibanNumber: scannedText, bankImage: selectedBank)], isMale: true)
                     onSave(newPerson)
                 }
-                .foregroundColor(.white)
-                .padding()
-                .background(Color.blue)
-                .cornerRadius(10)
+                .primaryButtonStyle
             }
-            
+            .padding(.horizontal, 24)
         }
-        .navigationBarTitle("Add Person", displayMode: .inline)
-        .sheet(isPresented: $liveScan, content: {
-            LiveTextFromCameraScan(liveScan: $liveScan, scannedText: $scannedText)
-        })
+        
     }
 }
 
+
+
 struct PersonAddView_Preview: PreviewProvider {
     static var previews: some View {
-        // Create a dummy implementation of onSave for the preview
         let dummyOnSave: (PersonModel) -> Void = { person in
-            // Dummy implementation
             print("Preview onSave called with person: \(person)")
         }
         

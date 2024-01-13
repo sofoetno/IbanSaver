@@ -10,8 +10,6 @@ import UIKit
 
 class PersonListPageViewController: UIViewController {
     
-    
-    
     var persons: [PersonModel] = [
         PersonModel(fullName: "levaniko Dzlieri", avatarName: "male1", savedIbans: [], isMale: true),
         PersonModel(fullName: "giviko Lamazi", avatarName: "female3", savedIbans: [], isMale: false),
@@ -33,7 +31,6 @@ class PersonListPageViewController: UIViewController {
     let addPersonButton: UIButton = {
         let button = UIButton()
         button.setTitle("Add Person", for: .normal)
-        button.backgroundColor = .red
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -82,6 +79,7 @@ class PersonListPageViewController: UIViewController {
     private func setupAddPersonButton() {
         view.addSubview(addPersonButton)
         
+        addPersonButton.applyAddButtonStyle()
         
         NSLayoutConstraint.activate([
             addPersonButton.topAnchor.constraint(equalTo: homeTableView.bottomAnchor, constant: 30),
@@ -92,13 +90,11 @@ class PersonListPageViewController: UIViewController {
         
         addPersonButton.addAction(UIAction { _ in
             self.navigationController?.pushViewController(UIHostingController(rootView: PersonAddView(onSave: { newPerson in
-                // Update your persons array
-                // You might want to append the new person or update an existing one
+
                 self.persons.append(newPerson)
 
                 self.homeTableView.reloadData()
                 
-                // Dismiss the PersonAddView
                 self.navigationController?.popViewController(animated: true)
             })), animated: true)
         }, for: .touchUpInside)
@@ -131,5 +127,11 @@ extension PersonListPageViewController: UITableViewDelegate, UITableViewDataSour
     
 }
 
-
-
+extension UIButton {
+    func applyAddButtonStyle() {
+        self.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 60, height: 50)
+        self.setTitleColor(UIColor(AppColors.white), for: .normal)
+        self.backgroundColor = UIColor(AppColors.white.opacity(0.04))
+        self.layer.cornerRadius = 40
+    }
+}

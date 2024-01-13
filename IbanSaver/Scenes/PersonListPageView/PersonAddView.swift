@@ -24,7 +24,7 @@ struct PersonAddView: View {
                 .padding(.bottom, 50)
             
             VStack {
-                CustomTextFieldWithIcon(text: $viewModel.fullName, placeholder: "Full Name", iconName: "")
+                CustomTextFieldStyleView(text: $viewModel.fullName, placeholder: "Full Name", iconName: "")
                     .padding(.bottom, 12)
                 CustomTextFieldWithClickableIconView(text: $viewModel.ibanNumber, placeholder: "IBAN number", iconName: "doc.viewfinder.fill") {
                     if DataScannerViewController.isSupported {

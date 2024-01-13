@@ -1,20 +1,20 @@
 //
-//  CustomTextFieldStyleView.swift
+//  SecureFieldStyleView.swift
 //  IbanSaver
 //
-//  Created by Nika Jamatashvili on 12.01.24.
+//  Created by David on 1/13/24.
 //
 
 import SwiftUI
 
-struct CustomTextFieldStyleView: View {
+struct CustomSecureFieldWithIcon: View {
     @Binding var text: String
     var placeholder: String
     var iconName: String
     
     var body: some View {
         HStack {
-            TextField(placeholder, text: $text)
+            SecureField(placeholder, text: $text)
             
             Image(systemName: iconName)
                 .foregroundColor(AppColors.darkGray)

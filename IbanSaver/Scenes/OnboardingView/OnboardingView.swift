@@ -48,7 +48,7 @@ struct OnboardingView: View, WithRootNavigationController {
                                 Capsule()
                                     .matchedGeometryEffect(id: "page", in: namespace)
                                     .frame(width: 18, height: 6)
-                                    .animation(.default)
+                                    .animation(.default, value: currentPage)
                             } else {
                                 Circle()
                                     .frame(width: 6, height: 6)
@@ -76,7 +76,6 @@ struct OnboardingView: View, WithRootNavigationController {
                             }, label: {
                                 Text("Next")
                                     .frame(width: 60)
-                                
                             })
                         }
                         .frame(height: 60)

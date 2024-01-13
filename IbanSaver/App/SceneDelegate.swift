@@ -21,12 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        var rootView = HomeView()
+        var rootView = AnyView(HomeView())
         
         let isUserOnboarded = UserDefaults.standard.bool(forKey: "has-seen-onboarding")
         
         if (!isUserOnboarded) {
-//            rootView = OnboardingView()
+            rootView = AnyView(OnboardingView())
         }
         
         let rootViewController = UIHostingController(rootView: rootView)

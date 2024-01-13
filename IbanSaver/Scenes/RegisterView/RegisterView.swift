@@ -21,7 +21,7 @@ struct RegisterView: View, WithRootNavigationController {
             
             if registrationSuccess {
                 RegistrationCompletedView()
-                Text("Your account has been successfully cteated!")
+                Text("Your account has been successfully created!")
                     .multilineTextAlignment(.center)
                     .font(.title)
                     .foregroundStyle(.gray)
@@ -111,7 +111,7 @@ struct RegisterView: View, WithRootNavigationController {
                 .foregroundStyle(registerViewModel.isFormValid() ? AppColors.primary : AppColors.lightGray)
                 .disabled(!registerViewModel.isFormValid())
                 .alert(isPresented: $showAlert) {
-                    Alert(title: Text("Error"), message: Text("the user is already registered"), dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Error"), message: Text("The user with this email is already registered"), dismissButton: .default(Text("OK")))
                 }
                 
                 Button {
@@ -134,7 +134,7 @@ struct RegisterView: View, WithRootNavigationController {
     }
     
     func goToLogin() {
-        self.push(viewController: UIHostingController(rootView: HomeView()), animated: true)
+        self.push(viewController: UIHostingController(rootView: SignInView()), animated: true)
     }
 }
 

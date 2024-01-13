@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        var rootView = PersonListPageViewController()
+        var rootView = HomeView()
         
         let isUserOnboarded = UserDefaults.standard.bool(forKey: "has-seen-onboarding")
         
@@ -29,8 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            rootView = OnboardingView()
         }
         
-//        let rootViewController = UIHostingController(rootView: rootView)
-        let navigationController = UINavigationController(rootViewController: rootView)
+        let rootViewController = UIHostingController(rootView: rootView)
+        let navigationController = UINavigationController(rootViewController: rootViewController)
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
@@ -66,4 +66,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-

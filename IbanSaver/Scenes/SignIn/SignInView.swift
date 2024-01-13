@@ -86,7 +86,7 @@ struct SignInView: View, WithRootNavigationController {
                     case.mainAlert:
                         Alert(title: Text("Important message"), message: Text(model.error), dismissButton: .default(Text("OK")))
                     case.IDAlert:
-                        Alert(title: Text("ID Message"), message: Text(model.error),
+                        Alert(title: Text("Face ID Message"), message: Text("Do you want to save Face ID?"),
                               primaryButton: .default(Text("Yes")) {
                             model.writeID()
                         },
@@ -99,7 +99,7 @@ struct SignInView: View, WithRootNavigationController {
                 }
                 .onChange(of: model.isActive) { oldValue, newValue in
                     if newValue == true {
-                        self.push(viewController: UIHostingController(rootView: RegisterView()), animated: true)
+                        self.push(viewController:  PersonListPageViewController(), animated: true)
                         model.isActive = false
                     }
                 }

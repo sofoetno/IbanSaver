@@ -12,7 +12,7 @@ struct IbanModel {
     let bankImage: bankSelect
 }
  
-enum bankSelect: String {
+enum bankSelect: String, CaseIterable {
     case Bog = "BOG"
     case TBC = "TBC"
     case Credo = "Credo"

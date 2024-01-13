@@ -102,7 +102,7 @@ struct OnboardingView: View, WithRootNavigationController {
     private var getStartedButtonView: some View {
         Button(action: {
             UserDefaults.standard.set(true, forKey: "has-seen-onboarding")
-            self.push(viewController: UIHostingController(rootView: HomeView()), animated: true)
+            self.push(viewController: UIHostingController(rootView: SignInView()), animated: true)
         }, label: {
             Text("Get Started")
                 .foregroundStyle(AppColors.white)

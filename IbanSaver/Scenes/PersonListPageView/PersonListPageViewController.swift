@@ -86,10 +86,10 @@ class PersonListPageViewController: UIViewController {
         ])
         
         addPersonButton.addAction(UIAction { _ in
-            self.navigationController?.pushViewController(UIHostingController(rootView: PersonAddView(onSave: { newPerson in
+            self.navigationController?.present(UIHostingController(rootView: PersonAddView(onSave: { newPerson in
                 self.viewModel.persons.append(newPerson)
                 self.homeTableView.reloadData()
-                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.dismiss(animated: true)
             })), animated: true)
         }, for: .touchUpInside)
     }

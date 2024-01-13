@@ -134,7 +134,7 @@ struct RegisterView: View, WithRootNavigationController {
     }
     
     func goToLogin() {
-        self.push(viewController: UIHostingController(rootView: SignInView()), animated: true)
+        self.pop(animated: true)
     }
 }
 

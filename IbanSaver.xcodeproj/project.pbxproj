@@ -27,6 +27,8 @@
 		C40A3EC12B5051D300EE284B /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A3EC02B5051D300EE284B /* PersonModel.swift */; };
 		C40A3EC32B5051DE00EE284B /* IbanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A3EC22B5051DE00EE284B /* IbanModel.swift */; };
 		C43C7A3F2B52A77000088974 /* CustomTextFieldWithClickableIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43C7A3E2B52A77000088974 /* CustomTextFieldWithClickableIconView.swift */; };
+		C43C7A412B52B52C00088974 /* PersonAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43C7A402B52B52C00088974 /* PersonAddViewModel.swift */; };
+		C43C7A432B52B7AD00088974 /* PersonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43C7A422B52B7AD00088974 /* PersonListViewModel.swift */; };
 		C4697AD32B513A5800486361 /* PersonListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4697AD22B513A5800486361 /* PersonListPageViewController.swift */; };
 		C4697AD72B51561C00486361 /* PersonListPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4697AD62B51561C00486361 /* PersonListPageViewModel.swift */; };
 		C4697AD92B515A1800486361 /* PersonAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4697AD82B515A1800486361 /* PersonAddView.swift */; };
@@ -53,6 +55,8 @@
 		C40A3EC02B5051D300EE284B /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
 		C40A3EC22B5051DE00EE284B /* IbanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanModel.swift; sourceTree = "<group>"; };
 		C43C7A3E2B52A77000088974 /* CustomTextFieldWithClickableIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldWithClickableIconView.swift; sourceTree = "<group>"; };
+		C43C7A402B52B52C00088974 /* PersonAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonAddViewModel.swift; sourceTree = "<group>"; };
+		C43C7A422B52B7AD00088974 /* PersonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewModel.swift; sourceTree = "<group>"; };
 		C4697AD22B513A5800486361 /* PersonListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListPageViewController.swift; sourceTree = "<group>"; };
 		C4697AD62B51561C00486361 /* PersonListPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListPageViewModel.swift; sourceTree = "<group>"; };
 		C4697AD82B515A1800486361 /* PersonAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonAddView.swift; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 				C4697AD22B513A5800486361 /* PersonListPageViewController.swift */,
 				C4697AD62B51561C00486361 /* PersonListPageViewModel.swift */,
 				C4697AD82B515A1800486361 /* PersonAddView.swift */,
+				C43C7A402B52B52C00088974 /* PersonAddViewModel.swift */,
+				C43C7A422B52B7AD00088974 /* PersonListViewModel.swift */,
 			);
 			path = PersonListPageView;
 			sourceTree = "<group>";
@@ -299,9 +305,11 @@
 				88C4EB342B4ED8A30033A466 /* WithRootNavigationController.swift in Sources */,
 				2E4A6FF52B511D8300E5228F /* ColorExtension.swift in Sources */,
 				C40A3EC32B5051DE00EE284B /* IbanModel.swift in Sources */,
+				C43C7A412B52B52C00088974 /* PersonAddViewModel.swift in Sources */,
 				2E4A6FFB2B51213000E5228F /* ListRowView.swift in Sources */,
 				88C4EB142B4EBE690033A466 /* SceneDelegate.swift in Sources */,
 				88C4EB382B4EDD130033A466 /* RegisterView.swift in Sources */,
+				C43C7A432B52B7AD00088974 /* PersonListViewModel.swift in Sources */,
 				C4697AD92B515A1800486361 /* PersonAddView.swift in Sources */,
 				88C4EB262B4EBED10033A466 /* HomeView.swift in Sources */,
 				C47BFDA32B51A32000EFE1E0 /* LiveTextFromCameraScan.swift in Sources */,

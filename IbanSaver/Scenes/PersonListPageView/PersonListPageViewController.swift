@@ -9,17 +9,10 @@ import SwiftUI
 import UIKit
 
 class PersonListPageViewController: UIViewController {
+    // MARK: - Properties
+    var viewModel = PersonListViewModel()
     
-    var persons: [PersonModel] = [
-        PersonModel(fullName: "levaniko Dzlieri", avatarName: "male1", savedIbans: [], isMale: true),
-        PersonModel(fullName: "giviko Lamazi", avatarName: "female3", savedIbans: [], isMale: false),
-        PersonModel(fullName: "Jemal loladze", avatarName: "male3", savedIbans: [], isMale: true),
-        PersonModel(fullName: "nataliko", avatarName: "female1", savedIbans: [], isMale: false),
-        PersonModel(fullName: "John Doe", avatarName: "male3", savedIbans: [], isMale: true),
-        PersonModel(fullName: "Jane Doe", avatarName: "female2", savedIbans: [], isMale: false),
-    ]
-    
-    let homeTableView: UITableView = {
+    private let homeTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .singleLine
@@ -28,16 +21,21 @@ class PersonListPageViewController: UIViewController {
         return tableView
     }()
     
-    let addPersonButton: UIButton = {
+    private let addPersonButton: UIButton = {
         let button = UIButton()
         button.setTitle("Add Person", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    
+    // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    // MARK: - Private Methods
+    private func setupUI() {
         setupBackground()
         setupTableView()
         setupAddPersonButton()
@@ -56,7 +54,7 @@ class PersonListPageViewController: UIViewController {
             backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
+    
         view.sendSubviewToBack(backgroundImage)
     }
     
@@ -66,7 +64,6 @@ class PersonListPageViewController: UIViewController {
         homeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         homeTableView.delegate = self
         homeTableView.dataSource = self
-        
         
         NSLayoutConstraint.activate([
             homeTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
@@ -90,29 +87,23 @@ class PersonListPageViewController: UIViewController {
         
         addPersonButton.addAction(UIAction { _ in
             self.navigationController?.pushViewController(UIHostingController(rootView: PersonAddView(onSave: { newPerson in
-
-                self.persons.append(newPerson)
-
+                self.viewModel.persons.append(newPerson)
                 self.homeTableView.reloadData()
-                
                 self.navigationController?.popViewController(animated: true)
             })), animated: true)
         }, for: .touchUpInside)
     }
-    
-    
-    
 }
 
 extension PersonListPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        persons.count
+        viewModel.persons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let person = persons[indexPath.row]
+        let person = viewModel.persons[indexPath.row]
         
         cell.contentConfiguration = UIHostingConfiguration {
             VStack {
@@ -123,8 +114,7 @@ extension PersonListPageViewController: UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-    
-    
+
 }
 
 extension UIButton {
